@@ -9,7 +9,7 @@ router.use('/health', healthRoutes);
 router.get('/ping', (req, res) => {
   res.json({ 
     status: "ok", 
-    message: "Le routeur central répond bien ! 📡" 
+    message: "Le routeur central répond bien !" 
   });
 });
 
