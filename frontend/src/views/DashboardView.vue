@@ -77,8 +77,18 @@ async function fetchHealthData() {
 }
 
 function handleLogout() {
-  localStorage.removeItem("user");
+  // ✅ On vide TOUT le stockage local pour éviter les restes de clés mal nommées
+  localStorage.clear(); 
+  
+  // ✅ Ou si tu veux être précis, utilise les noms exacts utilisés au login :
+  // localStorage.removeItem("access_token");
+  // localStorage.removeItem("user");
+
+  // ✅ On redirige vers le login
   router.push("/login");
+  
+  // Optionnel : un petit rafraîchissement pour réinitialiser l'état global
+  // window.location.reload(); 
 }
 // Calcul des statistiques cardiaques
 const heartStats = computed(() => {

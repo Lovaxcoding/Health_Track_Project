@@ -9,6 +9,7 @@ const JWT_SECRET = process.env.JWT_SECRET || "ma_super_cle_secrete";
 
 //  Inscription (Optionnel pour tes tests, tu peux utiliser le seed)
 router.post("/register", async (req, res) => {
+    console.log("Tentative d'inscription pour :", req.body.email);
   const { email, password, name } = req.body;
   const hashedPassword = await bcrypt.hash(password, 10);
 
@@ -18,6 +19,7 @@ router.post("/register", async (req, res) => {
     });
     res.json({ message: "Utilisateur créé !" });
   } catch (e) {
+    console.error("❌ Erreur Prisma réelle :", e);
     res.status(400).json({ error: "Email déjà utilisé" });
   }
 });

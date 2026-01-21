@@ -3,27 +3,28 @@ const router = express.Router();
 const { PrismaClient } = require("@prisma/client");
 const prisma = new PrismaClient();
 const { GoogleGenAI } = require("@google/genai");
+const auth = require("../middleware/auth.middleware");
+
 
 const ai = new GoogleGenAI({
   apiKey: process.env.GEMINI_API_KEY,
   apiVersion: 'v1',
 });
 
-router.get("/:userId", async (req, res) => {
-    const idFromParams = parseInt(req.params.userId);
-  try {
-    const history = await prisma.chatMessage.findMany({
-      where: { userId: idFromParams },
-      orderBy: { createdAt: "asc" },
-    });
-    res.json(history);
-  } catch (error) {
-    res.status(500).json({ error: "Erreur historique" });
-  }
+
+
+// On ajoute 'auth' comme deuxième argument pour protéger la route
+router.get("/", auth, async (req, res) => {
+  const history = await prisma.chatMessage.findMany({
+    where: { userId: req.userId }, // req.userId vient du middleware !
+    orderBy: { createdAt: "asc" },
+  });
+  res.json(history);
 });
 
-router.post("/", async (req, res) => {
-  const { userId, content } = req.body;
+router.post("/", auth, async (req, res) => {
+  const userId = req.userId; 
+  const { content } = req.body;
   try {
     const healthData = await prisma.healthRecord.findMany({
       where: { userId: parseInt(userId) },
