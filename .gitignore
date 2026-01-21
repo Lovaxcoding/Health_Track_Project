@@ -27,3 +27,4 @@ frontend/.env.production.local
 
 # --- Tests ---
 /coverage
+dev.db
