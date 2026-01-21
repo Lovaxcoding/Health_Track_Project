@@ -2,6 +2,8 @@
 import { ref, onMounted, computed } from "vue";
 import { useRouter } from "vue-router";
 import api, { type HealthRecord, type User } from "@/lib/api";
+import AIChatBot from '@/components/AIChatBot.vue';
+
 
 // UI Components
 import { Button } from "@/components/ui/button";
@@ -173,6 +175,7 @@ async function DeleteRecord(recordId: number) {
     </header>
 
     <main class="grid grid-cols-12 gap-8">
+      <AIChatBot />
       <section class="col-span-12 lg:col-span-8 space-y-8">
         <div
           class="flex flex-col sm:flex-row sm:justify-between items-center justify-between sm:items-end gap-4 my-4 py-2">
