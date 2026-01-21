@@ -19,13 +19,13 @@ const mode = useColorMode()
     </DropdownMenuTrigger>
     <DropdownMenuContent align="end">
       <DropdownMenuItem @click="mode = 'light'">
-        Light
+        Clair
       </DropdownMenuItem>
       <DropdownMenuItem @click="mode = 'dark'">
-        Dark
+        Sombre
       </DropdownMenuItem>
       <DropdownMenuItem @click="mode = 'auto'">
-        System
+        Système
       </DropdownMenuItem>
     </DropdownMenuContent>
   </DropdownMenu>

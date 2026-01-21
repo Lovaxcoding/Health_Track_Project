@@ -29,6 +29,9 @@ importers:
       lucide-vue-next:
         specifier: ^0.562.0
         version: 0.562.0(vue@3.5.27(typescript@5.9.3))
+      recharts-vue:
+        specifier: ^0.0.1
+        version: 0.0.1
       reka-ui:
         specifier: ^2.7.0
         version: 2.7.0(typescript@5.9.3)(vue@3.5.27(typescript@5.9.3))
@@ -979,6 +982,9 @@ packages:
   proxy-from-env@1.1.0:
     resolution: {integrity: sha512-D+zkORCbA9f1tdWRK0RaCR3GPv50cMxcrz4X8k5LTSUD1Dkw47mKJEZQNunItRTkWwgtaUSo1RVFRIG9ZXiFYg==}
 
+  recharts-vue@0.0.1:
+    resolution: {integrity: sha512-DmP6p99YJRJdRa7HSZ1uQ1WRCT5Yn+wHv9vrdYHgbuUqdZLlC1CVlQ4O3HBVqC9bHvL+TImJbxrD6FWzPiQb1A==}
+
   reka-ui@2.7.0:
     resolution: {integrity: sha512-m+XmxQN2xtFzBP3OAdIafKq7C8OETo2fqfxcIIxYmNN2Ch3r5oAf6yEYCIJg5tL/yJU2mHqF70dCCekUkrAnXA==}
     peerDependencies:
@@ -1842,6 +1848,8 @@ snapshots:
       source-map-js: 1.2.1
 
   proxy-from-env@1.1.0: {}
+
+  recharts-vue@0.0.1: {}
 
   reka-ui@2.7.0(typescript@5.9.3)(vue@3.5.27(typescript@5.9.3)):
     dependencies:
