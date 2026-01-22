@@ -80,7 +80,15 @@
 }
 
 .dark {
-  --background: oklch(0.141 0.005 285.823);
+  --background: oklch(0% 0 0);
+  --background-gradient: radial-gradient(
+  circle at top,
+  #091522 0%,
+  #02060a 55%,
+  #000000 100%
+);
+
+
   --foreground: oklch(0.985 0 0);
   --card: oklch(0.21 0.006 285.885);
   --card-foreground: oklch(0.985 0 0);
@@ -120,5 +128,8 @@
   body {
     font-family: var(--font-montserrat);
     @apply bg-background text-foreground antialiased;
+    background: var(--background-gradient);
+  background-attachment: fixed; /* Garde le dégradé fixe lors du scroll */
+  min-height: 100vh;
   }
 }

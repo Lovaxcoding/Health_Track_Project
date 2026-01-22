@@ -46,7 +46,7 @@ async function onSubmit() {
 
 <template>
   <div class="flex items-center dashboard-bg justify-center min-h-screen px-4">
-    <Card class="w-full max-w-md shadow-lg">
+    <Card class="w-full max-w-md rounded-[2.5rem] backdrop-blur-md p-4  shadow-sm border bg-white/50 dark:bg-slate-900/50">
       <CardHeader class="space-y-1">
         <CardTitle class="text-2xl font-bold text-center">Health Track</CardTitle>
         <CardDescription class="text-center">
