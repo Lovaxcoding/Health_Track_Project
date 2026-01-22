@@ -11,8 +11,21 @@ model User {
   id        Int       @id @default(autoincrement())
   email     String    @unique
   name      String?
+  password  String
   records   HealthRecord[]
-  sessions  Session[]   // 👈 AJOUT ICI
+  sessions  Session[]   
+  messages  ChatMessage[]
+}
+
+model ChatMessage {
+  id        Int      @id @default(autoincrement())
+  role      String   // 'user' ou 'assistant'
+  content   String  // @db.Text permet de stocker de longs messages
+  createdAt DateTime @default(now())
+  
+  // Relation avec l'utilisateur
+  userId    Int
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
 
 model HealthRecord {

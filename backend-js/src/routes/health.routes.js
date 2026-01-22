@@ -29,5 +29,18 @@ router.post('/', async (req, res) => {
     res.status(500).json({ error: "Erreur lors de l'enregistrement" });
   }
 });
+//supprimer une mesure
+router.delete('/:id', async (req, res) => {
+  const { id } = req.params;
+  try{
+    const deleteRecord = await prisma.healthRecord.delete({
+      where: { id: parseInt(id) }
+    });
+    res.json({ message: "Mesure supprimée avec succès", deleteRecord });
+  }
+  catch (error) {
+    res.status(500).json({ error: "Erreur lors de la suppression" });
+  }
+});
 
 module.exports = router;

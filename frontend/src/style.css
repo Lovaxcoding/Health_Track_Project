@@ -1,9 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
 @import "tailwindcss";
 @import "tw-animate-css";
 
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
+  --font-montserrat: "Montserrat", sans-serif;
+  --font-sans: "Montserrat", sans-serif;
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
@@ -56,7 +60,7 @@
   --muted-foreground: oklch(0.552 0.016 285.938);
   --accent: oklch(0.967 0.001 286.375);
   --accent-foreground: oklch(0.21 0.006 285.885);
-  --destructive: oklch(0.577 0.245 27.325);
+  --destructive: oklch(59.904% 0.24181 2.224);
   --border: oklch(0.92 0.004 286.32);
   --input: oklch(0.92 0.004 286.32);
   --ring: oklch(0.712 0.194 13.428);
@@ -76,7 +80,15 @@
 }
 
 .dark {
-  --background: oklch(0.141 0.005 285.823);
+  --background: oklch(0% 0 0);
+  --background-gradient: radial-gradient(
+  circle at top,
+  #091522 0%,
+  #02060a 55%,
+  #000000 100%
+);
+
+
   --foreground: oklch(0.985 0 0);
   --card: oklch(0.21 0.006 285.885);
   --card-foreground: oklch(0.985 0 0);
@@ -114,6 +126,10 @@
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-background text-foreground;
+    font-family: var(--font-montserrat);
+    @apply bg-background text-foreground antialiased;
+    background: var(--background-gradient);
+  background-attachment: fixed; /* Garde le dégradé fixe lors du scroll */
+  min-height: 100vh;
   }
 }
